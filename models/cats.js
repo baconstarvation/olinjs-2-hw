@@ -5,7 +5,6 @@ var catSchema = mongoose.Schema({
   age: String,
   color: String,
   name: String,
-  class: String
 });
 
 // missing some other important code here, there, everywhere

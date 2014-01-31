@@ -37,11 +37,12 @@ app.get('/cats', cats.list); // added this on 1.28.2014
 // how does this compare to app.get('/cats', cats.list) up there
 app.get('/cats', function(req, res) {
 	// shows a sorted list of cats by age. This should display their names, colors, and age
+	// you're going to want index / to have the equivalent behavior of /cats
 	// res.send('list of all cats with age, colors, and name');
 });
 
 app.get('/cats/new', function(req, res) {
-	// some code here
+	// create a random cat. then re-route to /cats to show the full list of cats
 	// res.send('etcetcetcetcetc');
 		// needs random age, to pick from a list of colors, and a random name.
 		/*

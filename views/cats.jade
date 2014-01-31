@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 Cats
+  p List of Cats
+  div
+    each user, i in cats
+      div(value=cats) #{cats.name} has an #{cats.grade} and graduates in #{cats.class}
+
+#{cats.age}
+#{cats.color}
+#{cats: name}
+
