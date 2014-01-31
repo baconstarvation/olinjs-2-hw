@@ -1,8 +1,6 @@
 // routes for cats
 var Cats = require('../models/cats')
 
-// not sure what to do with the code below yet. it's a re-working of old user.js code from olinjs-2
-
 // listing all of the cats
 exports.list = function(req, res) {
 	// get the list of cats
@@ -16,8 +14,16 @@ exports.list = function(req, res) {
 
 // creating a new cat
 exports.create = function(req, res) {
-	// create the cats
-	var fatso = new Cats({ age: '80', color: 'dicaprio', name: 'fatso'});
+	
+	var ageArray = [23,5,3,6,11,14,15,18,9,8];
+	var colorArray = ["blue","black","brown","purple","white","grey","gray","orange","red","magenta"];
+	var nameArray = ["peyton","tom","bill","russell","troy","pete","jim","john","lovie","colin"];
+
+	var age = ageArray[Math.floor(Math.random() * ageArray.length)];
+	var color = ageArray[Math.floor(Math.random() * ageArray.length)];
+	var name = ageArray[Math.floor(Math.random() * ageArray.length)];
+	
+	var fatso = new Cats({age, color, name});
 	fatso.save(function (err) {
 		if (err)
 			return console.log("error we couldn't save fatso");

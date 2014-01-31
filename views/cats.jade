@@ -5,9 +5,4 @@ block content
   p List of Cats
   div
     each user, i in cats
-      div(value=cats) #{cats.name} has an #{cats.grade} and graduates in #{cats.class}
-
-#{cats.age}
-#{cats.color}
-#{cats: name}
-
+      div(value=cats) This is cat#1. It is #{cats.age} years old. It is the color of #{cats.color}. Its name is #{cats.name}.
