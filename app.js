@@ -41,7 +41,6 @@ app.get('/cats', function(req, res) {
 	// res.send('list of all cats with age, colors, and name');
 });
 
-
 app.get('/cats/new', cats.create); //{
 	// create a random cat. then re-route to /cats to show the full list of cats
 	// res.send('etcetcetcetcetc');
