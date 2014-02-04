@@ -32,6 +32,10 @@ exports.create = function(req, res) {
 				res.send("This is a new cat named " + kitty.name + ". It is the color of " + kitty.color + ". It is " + kitty.age + " years old.");
 			}*/
 		// redirect to the list of cats
+		res.render('new', {title: "cat added", cats: kitty });
+		// cat: kitty doesnt work
+		// cats: kitty doesnt work
+		// catSchema: kitty doesnt work
 		res.redirect('/cats');
 	});
 };
