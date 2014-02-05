@@ -7,8 +7,6 @@ var catSchema = mongoose.Schema({
   name: String,
 });
 
-// missing some other important code here, there, everywhere
-
 var Cats = mongoose.model('Cats', catSchema);
 module.exports = Cats;
 
