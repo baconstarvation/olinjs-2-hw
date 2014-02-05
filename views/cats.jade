@@ -1,8 +1,7 @@
 extends layout
 
 block content
-  h1 Cats
-  p List of Cats
+  h1 #{title}
   div
     each catSchema, i in cats
       div(value=cats) Cat's name is #{cats.name}. It is #{cats.age} years old. It is the color of #{cats.color}.

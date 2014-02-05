@@ -5,7 +5,7 @@
 
 var express = require('express')
 	, routes = require('./routes')
-	, Cats = require('./models/cats')
+//	, Cats = require('./models/cats')
 	, cats = require('./routes/cats')
 	, http = require('http')
 	, path = require('path')
@@ -29,22 +29,11 @@ app.configure('development', function(){
 	app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
+app.get('/', cats.list);
 app.get('/cats', cats.list);
 app.get('/cats/new', cats.newCat);
-
-
-
-
-app.get('/cats/color/:color', function(req, res) {
-	// shows a sorted list of cats by age that have that specific color
-	// res.send('etcetcetcetcetc');
-});
-
-app.get('/cats/delete/old', function(req, res) {
-	// delete the oldest cat. The cat should no longer appear on any lists
-	// res.send('etcetcetcetcetc');
-});
+app.get('/cats/color/:color', cats.sortCatsByColor);
+app.get('/cats/delete/old', cats.deleteOldestCat);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
