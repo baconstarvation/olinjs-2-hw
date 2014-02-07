@@ -2,6 +2,7 @@ var Cats = require('../models/cats')
 
 // list all of the cats
 exports.list = function(req, res) {
+	// don't forget to sort the cats by age
 	//var catsList = Cats.find().exec(function (err, docs) {
 	var catsList = Cats.find({}, function (err, response) {
 		if (err) {
