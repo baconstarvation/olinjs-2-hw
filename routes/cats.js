@@ -4,7 +4,7 @@ var Cats = require('../models/cats')
 exports.list = function(req, res) {
 	// don't forget to sort the cats by age
 	//var catsList = Cats.find().exec(function (err, docs) {
-	var catsList = Cats.find({}, function (err, response) {
+	var catsList = Cats.find().sort({age:-1}).exec(function (err, response) {
 		if (err) {
 			return console.log("error", cats);
 		}
@@ -14,20 +14,6 @@ exports.list = function(req, res) {
 	});
 };
 
-/*
-exports.showCats = function(req, res) {
-	var catsList = Cats.find().sort({age:-1}).exec(function (err, response) {
-   	if (err) {
-    	return console.log(err);
-   	}
-   	else {
-    	res.render("cats",{cats : response, title : "List of all cats"});
-   	}
-  	});
-}
-*/
-
-// creates a new cat
 exports.newCat = function(req, res) {
 	
 	var ageArray = [23,5,3,6,11,14,15,18,9,8];
@@ -58,24 +44,13 @@ exports.sortCatsByColor = function(req, res) {
 	});
 };
 
-exports.deleteOldestCat = function(req, res) {
-	Cats.find().sort({age: -1}).limit(1).exec(function(err, response) {
-		Cats.findOne().where('_id', response[0]._id).remove();
-		res.redirect("/cats");
+exports.deleteOldestCat = function(req, res){
+	//Deletes the oldest cat
+	Cats.find().sort({age: -1}).exec(function(err, response) {
+	response[0].remove();
+	res.redirect('/cats');
 	});
 };
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
